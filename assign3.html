@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce Web Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f5f5f5;
+    }
+    nav {
+      background-color: #333;
+      color: white;
+      display: flex;
+      justify-content: space-around;
+      padding: 15px 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: yellow;
+    }
+    section {
+      padding: 20px;
+      background-color: white;
+      margin: 15px;
+      border-radius: 10px;
+    }
+    h2 {
+      color: #333;
+    }
+    .product-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 20px;
+    }
+    .product {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 10px;
+      width: 200px;
+      text-align: center;
+      background-color: #fafafa;
+      transition: 0.3s;
+    }
+    .product:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .product img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    form {
+      background-color: #eee;
+      padding: 15px;
+      border-radius: 10px;
+      width: 300px;
+    }
+    input {
+      width: 90%;
+      padding: 8px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #333;
+      color: white;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#products">Product Items</a>
+    <a href="#register">Register/Login</a>
+    <a href="#orders">Orders & Wishlist</a>
+    <a href="#contact">Contact Us</a>
+    <a href="#about">About Us</a>
+  </nav>
+
+  <section id="home">
+    <h2>Welcome to My E-Commerce Portal</h2>
+    <p>Shop the latest products at affordable prices. Enjoy a smooth and secure online shopping experience!</p>
+  </section>
+
+  <section id="products">
+    <h2>Product Items</h2>
+    <div class="product-container">
+      <div class="product">
+        <img src="C:\Users\BABU\OneDrive\Desktop\webrec\wirelessmouse.jpg" alt="Wireless Mouse">
+        <h4>Wireless Mouse</h4>
+        <p>₹599</p>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="C:\Users\BABU\OneDrive\Desktop\webrec\bluspe.jpeg" alt="Bluetooth Speaker">
+        <h4>Bluetooth Speaker</h4>
+        <p>₹1299</p>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="C:\Users\BABU\OneDrive\Desktop\webrec\smawat.jpeg" alt="Smart Watch">
+        <h4>Smart Watch</h4>
+        <p>₹1999</p>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="C:\Users\BABU\OneDrive\Desktop\webrec\gamlap.jpeg" alt="Gaming Laptop">
+        <h4>Gaming Laptop</h4>
+        <p>₹55999</p>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="register">
+    <h2>User Registration</h2>
+    <form onsubmit="return validateForm()">
+      <input type="text" id="username" placeholder="Enter Username"><br>
+      <input type="email" id="email" placeholder="Enter Email"><br>
+      <input type="password" id="password" placeholder="Enter Password"><br>
+      <button type="submit">Register</button>
+    </form>
+
+    <h2>Login</h2>
+    <form onsubmit="return loginValidate()">
+      <input type="email" id="loginEmail" placeholder="Email"><br>
+      <input type="password" id="loginPass" placeholder="Password"><br>
+      <button type="submit">Login</button>
+    </form>
+  </section>
+
+  <section id="orders">
+    <h2>My Orders</h2>
+    <ul>
+      <li>Order #1001 - Wireless Mouse - Delivered</li>
+      <li>Order #1002 - Bluetooth Speaker - In Transit</li>
+    </ul>
+
+    <h2>Wishlist</h2>
+    <ul>
+      <li>Smart Watch</li>
+      <li>Headphones</li>
+    </ul>
+
+    <h2>Customer Reviews</h2>
+    <p>"Great quality products and fast delivery!" - Priya</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: support@myecommerce.com</p>
+    <p>Phone: +91 98765 43210</p>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>We are a trusted online shopping portal providing quality products with the best deals and customer support.</p>
+  </section>
+
+  <script>
+    function validateForm() {
+      let name = document.getElementById("username").value;
+      let email = document.getElementById("email").value;
+      let pass = document.getElementById("password").value;
+      if (name == "" || email == "" || pass == "") {
+        alert("All fields are required!");
+        return false;
+      } else if (pass.length < 6) {
+        alert("Password must be at least 6 characters long");
+        return false;
+      }
+      alert("Registration Successful!");
+      return true;
+    }
+
+    function loginValidate() {
+      let email = document.getElementById("loginEmail").value;
+      let pass = document.getElementById("loginPass").value;
+      if (email == "" || pass == "") {
+        alert("Please fill all fields!");
+        return false;
+      }
+      alert("Login Successful!");
+      return true;
+    }
+  </script>
+
+</body>
+</html>
